@@ -1,11 +1,28 @@
-# React + TypeScript + Vite
+# 70-30 App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application for managing your 70-30 budget strategy.
 
-Currently, two official plugins are available:
+## Features
+- Budget tracking and visualization
+- Expense categorization
+- Financial goal setting
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
+
+### Prerequisites
+- Node.js (version 18 or higher)
+
+### Installation
+```bash
+npm install
+```
+
+### Running the App
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
 ## Expanding the ESLint configuration
 
@@ -50,20 +67,14 @@ export default tseslint.config([
   globalIgnores(['dist']),
   {
     files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
+    plugins: {
+      'react-x': reactX,
+      'react-dom': reactDom,
+    },
+    rules: {
+      // React rules
+      'react-x/no-unknown-property': 'error',
+      'react-dom/no-unknown-property': 'error',
     },
   },
 ])
-```
