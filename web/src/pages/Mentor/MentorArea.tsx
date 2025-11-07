@@ -4,7 +4,6 @@ import ChatIcon from '@mui/icons-material/Chat';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
-import VisibilityIcon from '@mui/icons-material/Visibility';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { styled } from '@mui/material/styles';
 import FooterMenu from '../../components/Layout/FooterMenu';
@@ -69,28 +68,6 @@ const MentorArea: React.FC<MentorAreaProps> = ({ userData }) => {
       if (savedFont) setFontSize(parseInt(savedFont));
     } catch {}
   }, []);
-
-  const toggleContrast = () => {
-    const next = !highContrast;
-    setHighContrast(next);
-    try { localStorage.setItem('highContrast', String(next)); } catch {}
-  };
-
-  const increaseFontSize = () => {
-    setFontSize(prev => {
-      const n = Math.min(150, prev + 10);
-      try { localStorage.setItem('fontSize', String(n)); } catch {}
-      return n;
-    });
-  };
-
-  const decreaseFontSize = () => {
-    setFontSize(prev => {
-      const n = Math.max(80, prev - 10);
-      try { localStorage.setItem('fontSize', String(n)); } catch {}
-      return n;
-    });
-  };
 
   const contactPartner = () => {
     alert('A contactar o aprendiz...');

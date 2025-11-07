@@ -16,14 +16,9 @@ import {
   Mic as MicIcon,
   WorkOutline as WorkIcon,
   School as SchoolIcon,
-  WorkspacePremium as ApprenticeIcon,
   CardMembership as CertificatesIcon,
-  AccessibilityNew as ElderlyIcon,
   CalendarMonth as CalendarIcon,
   DirectionsWalk as ActivitiesIcon,
-  Assessment as ReportsIcon,
-  Chat as ChatIcon,
-  HelpOutline as HelpIcon,
 } from '@mui/icons-material';
 
 const StyledFab = styled(Fab)(() => ({

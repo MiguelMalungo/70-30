@@ -4,10 +4,6 @@ import SafetyCheckIcon from '@mui/icons-material/SafetyCheck';
 import BuildIcon from '@mui/icons-material/Build';
 import HandymanIcon from '@mui/icons-material/Handyman';
 import LockIcon from '@mui/icons-material/Lock';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
-import CollectionsIcon from '@mui/icons-material/Collections';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
 import ChatIcon from '@mui/icons-material/Chat';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
@@ -50,26 +46,6 @@ const Header = styled(Card)(({ theme }) => ({
 }));
 
 
-const Controls = styled(Box)(({ theme }) => ({
-  position: 'fixed',
-  right: theme.spacing(2),
-  top: theme.spacing(2),
-  display: 'flex',
-  gap: theme.spacing(1),
-  zIndex: 10,
-}));
-
-const SmallBtn = styled(Button)(({ theme }) => ({
-  minWidth: 0,
-  padding: theme.spacing(0.5, 1),
-  borderRadius: 8,
-  textTransform: 'none',
-  backgroundColor: '#fff',
-  color: theme.palette.primary.dark,
-  '&:hover': { backgroundColor: theme.palette.grey[100] },
-  boxShadow: '0 1px 4px rgba(0,0,0,0.1)'
-}));
-
 const ProgressBar = styled(Box)(({ theme }) => ({
   height: 10,
   width: '100%',
@@ -110,28 +86,6 @@ const ApprenticeArea: React.FC<ApprenticeAreaProps> = ({ userData }) => {
       if (savedFont) setFontSize(parseInt(savedFont));
     } catch {}
   }, []);
-
-  const toggleContrast = () => {
-    const next = !highContrast;
-    setHighContrast(next);
-    try { localStorage.setItem('highContrast', String(next)); } catch {}
-  };
-
-  const increaseFontSize = () => {
-    setFontSize(prev => {
-      const n = Math.min(150, prev + 10);
-      try { localStorage.setItem('fontSize', String(n)); } catch {}
-      return n;
-    });
-  };
-
-  const decreaseFontSize = () => {
-    setFontSize(prev => {
-      const n = Math.max(80, prev - 10);
-      try { localStorage.setItem('fontSize', String(n)); } catch {}
-      return n;
-    });
-  };
 
   const contactMentor = () => {
     alert('💬 A contactar o mentor...\n\n📞 O seu mentor vai ligar-lhe dentro de instantes.');

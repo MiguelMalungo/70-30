@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, Button, Card, CardContent, Avatar, IconButton } from '@mui/material';
+import { Box, Typography, Button, Card, Avatar, IconButton } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import MicIcon from '@mui/icons-material/Mic';
@@ -31,8 +31,8 @@ const Container = styled(Box)((_) => ({
 }));
 
 // Decorative blob shape
-const BlobShape = styled(Box)(({ theme }) => ({
-    position: 'absolute',
+const BlobShape = styled(Box)((_) => ({
+  position: 'absolute',
   borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%',
   background: 'linear-gradient(135deg, #ff4444 0%, #ff6666 100%)',
   opacity: 0.8,
@@ -58,7 +58,7 @@ const ProfileCard = styled(Card)(({ theme }) => ({
 }));
 
 // Profile section
-const ProfileSection = styled(Box)(({ theme }) => ({
+const ProfileSection = styled(Box)(() => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-end',
@@ -79,21 +79,6 @@ const HealthReportCard = styled(Card)(({ theme }) => ({
   position: 'relative',
   zIndex: 1,
   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-}));
-
-// Task Category Card
-const TaskCategoryCard = styled(Card)(({ theme }) => ({
-  borderRadius: 20,
-  padding: theme.spacing(2.5),
-  color: '#fff',
-  position: 'relative',
-  overflow: 'hidden',
-  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
-  cursor: 'pointer',
-  transition: 'transform 0.2s',
-  '&:hover': {
-    transform: 'translateY(-2px)',
-  },
 }));
 
 // Today's Task Item
@@ -133,13 +118,6 @@ const ElderlyAssistedArea: React.FC<ElderlyAssistedAreaProps> = ({ userData }) =
       if (savedFont) setFontSize(parseInt(savedFont));
     } catch {}
   }, []);
-
-  const getCurrentTime = () => {
-    const now = new Date();
-    const hours = now.getHours().toString().padStart(2, '0');
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    return `${hours}:${minutes}`;
-  };
 
   // Sample data
   const profileData = {
