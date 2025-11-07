@@ -1,5 +1,6 @@
 // App.tsx - Main routing configuration
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import theme from './theme';
 
@@ -30,11 +31,28 @@ const Billing = () => <div style={{ padding: 20 }}>Billing & Payment Methods</di
 const Subscriptions = () => <div style={{ padding: 20 }}>Your Subscriptions</div>;
 const Language = () => <div style={{ padding: 20 }}>Language Settings</div>;
 
+const SessionRedirect = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const pending = sessionStorage.getItem('ghPagesRedirect');
+    if (pending) {
+      sessionStorage.removeItem('ghPagesRedirect');
+      navigate(pending, { replace: true });
+    }
+  }, [navigate]);
+
+  return null;
+};
+
 function App() {
+  const basename = import.meta.env.BASE_URL || '/';
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router>
+      <Router basename={basename}>
+        <SessionRedirect />
         <Routes>
           {/* Login page as the landing page */}
           <Route path="/login" element={<Login />} />
