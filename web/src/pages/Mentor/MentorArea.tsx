@@ -114,16 +114,16 @@ const MentorArea: React.FC<MentorAreaProps> = ({ userData }) => {
           </IconButton>
         </Box>
         <Header>
-          <CardContent sx={{ position: 'relative', zIndex: 1, textAlign: 'right' }}>
-            <Box display="flex" alignItems="center" gap={2} mb={1.5} justifyContent="flex-end">
+          <CardContent sx={{ position: 'relative', zIndex: 1 }}>
+            <Box display="flex" alignItems="center" gap={2} mb={1.5}>
               <Avatar src={userData?.photo || mentorAvatarFallback} alt={userData?.name || 'Sr. Manuel'} sx={{ width: 56, height: 56, border: '2px solid #fff' }} />
-              <Box sx={{ textAlign: 'right' }}>
+              <Box>
                 <Typography variant="h3" fontWeight={700}>70/30</Typography>
                 <Typography variant="body2">Olá,</Typography>
                 <Typography variant="h5" fontWeight={700}>{userData?.name || 'Sr. Manuel'}</Typography>
               </Box>
             </Box>
-            <Typography variant="body1" mt={1} sx={{ textAlign: 'right' }}>
+            <Typography variant="body1" mt={1}>
               {userData?.specialty || 'Canalizador'} | {userData?.rating || '4.9'} ({userData?.completedJobs || 47} serviços)
             </Typography>
           </CardContent>
