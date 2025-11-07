@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting...</title>
+    <meta name="robots" content="noindex" />
+    <script>
+      (function () {
+        var base = '/70-30';
+        var path = window.location.pathname;
+        if (!path.startsWith(base)) {
+          base = window.location.pathname.split('/').slice(0, 2).join('/') || '/70-30';
+        }
+        var relative = path.replace(base, '') || '/';
+        var search = window.location.search || '';
+        var hash = window.location.hash || '';
+        sessionStorage.setItem('ghPagesRedirect', relative + search + hash);
+        window.location.replace(base + '/');
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html>
+
