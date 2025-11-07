@@ -21,3 +21,20 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7); /* 70% black overlay */
 }
+
+/* Desktop: constrain video to large tablet portrait size and center it */
+@media (min-width: 1024px) {
+  .video-background {
+    width: 1024px;  /* large tablet portrait width */
+    height: 1366px; /* large tablet portrait height */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .video-background .video,
+  .video-background .overlay {
+    width: 100%;
+    height: 100%;
+  }
+}

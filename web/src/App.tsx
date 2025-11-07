@@ -8,12 +8,16 @@ import MainLayout from './components/Layout/MainLayout';
 
 // Pages
 import Login from './pages/Login';
-import Home from './pages/Home';
-import Categories from './pages/Categories';
-import Profile from './pages/Profile';
-import CustomService from './pages/CustomService';
-import ServiceDetail from './pages/ServiceDetail';
-import CategoryServices from './pages/CategoryServices';
+import Home from './pages/Client/Home';
+import Categories from './pages/Client/Categories';
+import Profile from './pages/Client/Profile';
+import CustomService from './pages/Client/CustomService';
+import ServiceDetail from './pages/Client/ServiceDetail';
+import CategoryServices from './pages/Client/CategoryServices';
+import ElderlyAssistedArea from './pages/ElderlyAssisted/ElderlyAssistedArea';
+import MentorArea from './pages/Mentor/MentorArea';
+import ApprenticeArea from './pages/Apprentice/ApprenticeArea';
+import Areas from './pages/Areas';
 
 // Placeholder pages
 const Search = () => <div style={{ padding: 20 }}>Search Page</div>;
@@ -36,6 +40,14 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route index element={<Navigate to="/login" replace />} />
           
+          {/* Role/Area selection */}
+          <Route path="/areas" element={<Areas />} />
+
+          {/* Standalone user areas */}
+          <Route path="/elderly" element={<ElderlyAssistedArea />} />
+          <Route path="/mentor" element={<MentorArea />} />
+          <Route path="/apprentice" element={<ApprenticeArea />} />
+
           {/* Main app routes with layout */}
           <Route path="/app" element={<MainLayout />}>
             <Route index element={<Home />} />

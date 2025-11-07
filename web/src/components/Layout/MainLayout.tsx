@@ -22,7 +22,7 @@ const StyledFab = styled(Fab)(() => ({
   bottom: 2,
   left: '50%',
   transform: 'translateX(-50%)',
-  backgroundColor: '#295D4A', // Dark green from design guidelines
+  backgroundColor: '#295D4A',
   color: 'white',
   '&:hover': {
     backgroundColor: '#1e4435',
@@ -37,9 +37,9 @@ const MainLayout: React.FC = () => {
   const location = useLocation();
   const [value, setValue] = React.useState(() => {
     const path = location.pathname;
-    if (path.startsWith('/search')) return 1;
-    if (path.startsWith('/orders')) return 2;
-    if (path.startsWith('/profile')) return 3;
+    if (path.startsWith('/app/search')) return 1;
+    if (path.startsWith('/app/orders')) return 2;
+    if (path.startsWith('/app/profile')) return 3;
     return 0; // Home is default
   });
 

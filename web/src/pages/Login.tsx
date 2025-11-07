@@ -69,17 +69,17 @@ export default function Login() {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Login bypassed');
-    navigate('/app');
+    navigate('/areas');
   };
 
   const handleSignup = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Signup with:', { signupName, signupEmail, signupPassword });
-    navigate('/app');
+    navigate('/areas');
   };
 
   return (
-    <div style={{ position: 'relative', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <VideoBackground videoSrc="/video.mp4" opacity={0.5} />
       <Box
         sx={{
@@ -94,23 +94,15 @@ export default function Login() {
           maxWidth: '500px',
           padding: '20px',
           boxSizing: 'border-box',
-          height: '100vh',
-          '@media (max-width: 768px)': {
-            height: 'auto',
-            minHeight: '100vh',
-          },
         }}
       >
         {/* Logo */}
         <Box
           sx={{
-            position: 'absolute',
-            top: '10%',
-            left: '50%',
-            transform: 'translateX(-50%)',
             width: '126px', /* 30% smaller than 180px */
             height: 'auto',
             zIndex: 1,
+            mb: 4,
           }}
         >
           <img
@@ -131,6 +123,9 @@ export default function Login() {
             maxWidth: 400,
             mt: 8,
             p: 3,
+            '@media (min-width: 1024px)': {
+              mt: 0,
+            },
           }}
         >
           <Tabs
@@ -307,9 +302,13 @@ export default function Login() {
                   color: 'white',
                   fontWeight: 'bold',
                   '&:hover': {
-                    backgroundColor: '#1e4535',
+                    backgroundColor: '#C6FF00',
+                    color: '#000000',
                   },
-                  borderRadius: 50, // Capsule shape
+                  '&:active': {
+                    backgroundColor: '#C6FF00',
+                    color: '#000000',
+                  },
                   py: 1.5,
                 }}
               >

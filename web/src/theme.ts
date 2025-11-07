@@ -49,6 +49,12 @@ const theme = createTheme({
         root: {
           borderRadius: 8,
           padding: '10px 20px',
+          '&:focus': {
+            outline: 'none',
+          },
+          '&:focus-visible': {
+            outline: 'none',
+          },
         },
         contained: {
           backgroundColor: '#295D4A',
@@ -60,6 +66,42 @@ const theme = createTheme({
         outlined: {
           borderColor: '#295D4A',
           color: '#295D4A',
+        },
+      },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          '&:focus': {
+            outline: 'none',
+          },
+          '&:focus-visible': {
+            outline: 'none',
+          },
+        },
+      },
+    },
+    MuiBottomNavigationAction: {
+      styleOverrides: {
+        root: {
+          '&:focus': {
+            outline: 'none',
+          },
+          '&:focus-visible': {
+            outline: 'none',
+          },
+        },
+      },
+    },
+    MuiFab: {
+      styleOverrides: {
+        root: {
+          '&:focus': {
+            outline: 'none',
+          },
+          '&:focus-visible': {
+            outline: 'none',
+          },
         },
       },
     },
