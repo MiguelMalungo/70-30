@@ -11,6 +11,9 @@ import FooterMenu from '../../components/Layout/FooterMenu';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useNavigate } from 'react-router-dom';
 
+const assetBaseUrl = import.meta.env.BASE_URL;
+const elderlyAvatarFallback = `${assetBaseUrl}images/mentor.png`;
+
 const Page = styled(Box)(({ theme }) => ({
   minHeight: '100vh',
   backgroundColor: '#ffffff',
@@ -124,7 +127,7 @@ const ElderlyAssistedArea: React.FC<ElderlyAssistedAreaProps> = ({ userData }) =
     name: userData?.name || 'José Silva',
   age: userData?.age || 84,
     location: userData?.location || 'Porto',
-    avatar: userData?.avatar || '/images/mentor.png',
+    avatar: userData?.avatar || elderlyAvatarFallback,
   };
 
   const activateSOS = () => {

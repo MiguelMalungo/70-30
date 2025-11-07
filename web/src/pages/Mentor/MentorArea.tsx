@@ -9,6 +9,10 @@ import { styled } from '@mui/material/styles';
 import FooterMenu from '../../components/Layout/FooterMenu';
 import { useNavigate } from 'react-router-dom';
 
+const assetBaseUrl = import.meta.env.BASE_URL;
+const mentorHeaderBackground = `url(${assetBaseUrl}images/aprentice.png)`;
+const mentorAvatarFallback = `${assetBaseUrl}images/mentor.png`;
+
 const Page = styled(Box)(({ theme }) => ({
   minHeight: '100vh',
   backgroundColor: theme.palette.background.default,
@@ -28,7 +32,7 @@ const Header = styled(Card)(({ theme }) => ({
   borderRadius: 16,
   marginBottom: theme.spacing(3),
   color: '#fff',
-  backgroundImage: `url(/images/aprentice.png)`,
+  backgroundImage: mentorHeaderBackground,
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   overflow: 'hidden',
@@ -112,7 +116,7 @@ const MentorArea: React.FC<MentorAreaProps> = ({ userData }) => {
         <Header>
           <CardContent sx={{ position: 'relative', zIndex: 1, textAlign: 'right' }}>
             <Box display="flex" alignItems="center" gap={2} mb={1.5} justifyContent="flex-end">
-              <Avatar src={userData?.photo || '/images/mentor.png'} alt={userData?.name || 'Sr. Manuel'} sx={{ width: 56, height: 56, border: '2px solid #fff' }} />
+              <Avatar src={userData?.photo || mentorAvatarFallback} alt={userData?.name || 'Sr. Manuel'} sx={{ width: 56, height: 56, border: '2px solid #fff' }} />
               <Box sx={{ textAlign: 'right' }}>
                 <Typography variant="h3" fontWeight={700}>70/30</Typography>
                 <Typography variant="body2">Olá,</Typography>
@@ -149,7 +153,7 @@ const MentorArea: React.FC<MentorAreaProps> = ({ userData }) => {
           mb: 3,
           position: 'relative',
           color: '#fff',
-          backgroundImage: 'url(/images/aprentice.png)',
+          backgroundImage: mentorHeaderBackground,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           overflow: 'hidden',
@@ -189,7 +193,7 @@ const MentorArea: React.FC<MentorAreaProps> = ({ userData }) => {
         <JobCard sx={{
           position: 'relative',
           color: '#fff',
-          backgroundImage: 'url(/images/aprentice.png)',
+          backgroundImage: mentorHeaderBackground,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           overflow: 'hidden',

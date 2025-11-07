@@ -78,9 +78,11 @@ export default function Login() {
     navigate('/areas');
   };
 
+  const videoUrl = `${import.meta.env.BASE_URL}video.mp4`;
+
   return (
     <div style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <VideoBackground videoSrc="/video.mp4" opacity={0.5} />
+      <VideoBackground videoSrc={videoUrl} opacity={0.5} />
       <Box
         sx={{
           position: 'relative',

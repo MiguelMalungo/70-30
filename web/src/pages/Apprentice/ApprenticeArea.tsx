@@ -13,6 +13,11 @@ import { styled } from '@mui/material/styles';
 import FooterMenu from '../../components/Layout/FooterMenu';
 import { useNavigate } from 'react-router-dom';
 
+const assetBaseUrl = import.meta.env.BASE_URL;
+const apprenticeHeaderBackground = `url(${assetBaseUrl}images/aprentice.png)`;
+const apprenticeAvatarFallback = `${assetBaseUrl}images/aprentice2.png`;
+const mentorAvatarFallback = `${assetBaseUrl}images/mentor.png`;
+
 const Page = styled(Box)(({ theme }) => ({
   minHeight: '100vh',
   backgroundColor: theme.palette.background.default,
@@ -32,7 +37,7 @@ const Header = styled(Card)(({ theme }) => ({
   color: '#fff',
   borderRadius: 16,
   marginBottom: theme.spacing(3),
-  backgroundImage: 'url(/images/aprentice.png)',
+  backgroundImage: apprenticeHeaderBackground,
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   overflow: 'hidden',
@@ -134,7 +139,7 @@ const ApprenticeArea: React.FC<ApprenticeAreaProps> = ({ userData }) => {
         <Header>
           <CardContent sx={{ position: 'relative', zIndex: 1, textAlign: 'right' }}>
             <Box display="flex" alignItems="center" gap={2} mb={1.5} justifyContent="flex-end">
-              <Avatar src={userData?.photo || '/images/aprentice2.png'} alt={userData?.name || 'João Silva'} sx={{ width: 56, height: 56, border: '2px solid #fff' }} />
+              <Avatar src={userData?.photo || apprenticeAvatarFallback} alt={userData?.name || 'João Silva'} sx={{ width: 56, height: 56, border: '2px solid #fff' }} />
               <Box sx={{ textAlign: 'right' }}>
                 <Typography variant="h3" fontWeight={700}>70/30</Typography>
                 <Typography variant="body2">Olá,</Typography>
@@ -184,7 +189,7 @@ const ApprenticeArea: React.FC<ApprenticeAreaProps> = ({ userData }) => {
           mb: 3,
           position: 'relative',
           color: '#fff',
-          backgroundImage: 'url(/images/aprentice.png)',
+          backgroundImage: apprenticeHeaderBackground,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           overflow: 'hidden',
@@ -199,7 +204,7 @@ const ApprenticeArea: React.FC<ApprenticeAreaProps> = ({ userData }) => {
           <CardContent sx={{ position: 'relative' }}>
             <Typography fontWeight={600} mb={1.5}>O Seu Mentor</Typography>
             <Box display="flex" alignItems="center" gap={2} mb={1.5}>
-              <Avatar src={userData?.mentor?.photo || '/images/mentor.png'} alt={userData?.mentor?.name || 'Mentor'} sx={{ width: 48, height: 48, border: '2px solid #fff' }} />
+              <Avatar src={userData?.mentor?.photo || mentorAvatarFallback} alt={userData?.mentor?.name || 'Mentor'} sx={{ width: 48, height: 48, border: '2px solid #fff' }} />
               <Box>
                 <Typography fontWeight={700}>{userData?.mentor?.name || 'Sr. Manuel'}</Typography>
                 <Typography variant="body2" color="inherit">{userData?.mentor?.years || 40} anos de experiência | {userData?.mentor?.rating || '4.9'}</Typography>
